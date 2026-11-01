@@ -11,7 +11,7 @@ print("Collected authenticated user's artists, albums and podcasts!\n\nNow compa
 
 only_artists = list(artists_with_albums.keys())
 
-validated_artists = deezer_client.get_artists(only_artists)
+validated_artists = deezer_client.deezer_artists(only_artists)
 
 for artist, validated in zip(only_artists, validated_artists):
     print(f'{artist}: {validated}')

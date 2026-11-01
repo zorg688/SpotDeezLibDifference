@@ -1,6 +1,6 @@
 import requests
 
-def get_artists(artists) -> list:
+def deezer_artists(artists) -> list:
 
     #artists = ['Amon Amarth', 'Ice Nine Kills', 'Daniel Pietschke the 18th']
 
@@ -46,4 +46,4 @@ def get_artists(artists) -> list:
 
 
 if __name__ == "__main__":
-    get_artists([])
+    deezer_artists([])
