@@ -1,6 +1,5 @@
 
 
-
 def spotify_bands(sp) -> list:
     print('-----------Artists-------------')
 
@@ -93,7 +92,7 @@ def spotify_albums(sp) -> dict:
     return albums
 
 #returns a dictonary with artists as keys and albums as values
-def assign_arists_to_albums(artists, albums_with_artists) -> tuple[dict, dict]:
+def assign_artists_to_albums(artists, albums_with_artists) -> tuple[dict, dict]:
 
     artists_with_albums = {element: [] for element in artists}
     unsaved_artists_with_albums = {'Unknown':[]}
@@ -110,7 +109,14 @@ def assign_arists_to_albums(artists, albums_with_artists) -> tuple[dict, dict]:
     return artists_with_albums, unsaved_artists_with_albums
                 
 
-    
+def collect_artists_shows_and_albums(sp) -> tuple[list, dict, dict]:
+    artists = spotify_bands(sp=sp)
+    shows = spotify_shows(sp=sp)
+    albums_with_artists = spotify_albums(sp=sp)
+
+    artists_with_albums, unsaved_artists_with_albums = assign_artists_to_albums(artists=artists, albums_with_artists=albums_with_artists)
+
+    return shows, artists_with_albums, unsaved_artists_with_albums
 
 if __name__ == "__main__":
 
@@ -137,6 +143,6 @@ if __name__ == "__main__":
     shows = spotify_shows(sp=sp)
     albums_with_artists = spotify_albums(sp=sp)
 
-    artists_with_albums, unsaved_artists_with_albums = assign_arists_to_albums(artists=artists, albums_with_artists=albums_with_artists)
+    artists_with_albums, unsaved_artists_with_albums = assign_artists_to_albums(artists=artists, albums_with_artists=albums_with_artists)
 
     print(artists_with_albums)
